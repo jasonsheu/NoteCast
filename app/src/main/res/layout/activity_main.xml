@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ssaurel.audiorecorder.MainActivity">
+    tools:context="com.example.notecast.MainActivity">
+
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:src="@drawable/logo_ssaurel"
-        android:id="@+id/logo"/>
+        android:src="@drawable/deepfried" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
