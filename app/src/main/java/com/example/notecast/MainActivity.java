@@ -29,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        play = (Button) findViewById(R.id.play);
-        stop = (Button) findViewById(R.id.stop);
+        //setContentView(R.layout.activity_main_menu);
+        play = (Button) findViewById(R.id.next);
+        stop = (Button) findViewById(R.id.prev);
         record = (Button) findViewById(R.id.record);
         record.setEnabled( false );
         stop.setEnabled(false);
