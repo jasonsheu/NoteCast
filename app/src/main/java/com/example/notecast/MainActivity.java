@@ -10,11 +10,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
+
 import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import com.example.notecast.PageAdapter;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
     private Button play, stop, record;
@@ -29,7 +36,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         //setContentView(R.layout.activity_main_menu);
+        /*
         play = (Button) findViewById(R.id.next);
         stop = (Button) findViewById(R.id.prev);
         record = (Button) findViewById(R.id.record);
@@ -52,6 +62,41 @@ public class MainActivity extends AppCompatActivity {
         } else {
             initButtonsAndRecorder();
         }
+        */
+
+        // Create an instance of the tab layout from the view.
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        // Set the text for each tab.
+
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.Recording));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.Saved_Lectures));
+        //tabLayout.addTab(tabLayout.newTab().setText(R.string.Lecture_Review));
+
+
+        // Set the tabs to fill the entire layout.
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        // Use PagerAdapter to manage page views in fr
+        // Use PagerAdapter to manage page views in fragments.
+        // Each page is represented by its own fragment.
+        final ViewPager viewPager = findViewById(R.id.pager);
+        final PageAdapter adapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        // Setting a listener for click
+        viewPager.addOnPageChangeListener(new
+                TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
     }
 
     private void initButtonsAndRecorder() {

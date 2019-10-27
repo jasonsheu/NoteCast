@@ -3,17 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBG1"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.notecast.MainActivity">
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context="com.example.android.tabexperiment.MainActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +17,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,49 +26,11 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/tab_layout"/>
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/deepfried" />
 
-    <Button
-        android:id="@+id/record"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_below="@id/logo"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="143dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="140dp"
-        android:text="Record"
-        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/prev"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="3dp"
-        android:text="Previous Slide"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/next"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/prev"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="-98dp"
-        android:layout_marginEnd="2dp"
-        android:text="Next slide"
-        android:textSize="20sp" />
 </RelativeLayout>
